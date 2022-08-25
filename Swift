@@ -1,0 +1,74 @@
+- 이름 짓기 규칙 -
+Lower Camel Case : function, method, variable, constant
+Upper Camel Case : type(class, struct, enum, extension…)
+대소문자 구분
+
+
+- 콘솔로그 -
+printf
+    단순 문자열 출력
+dump
+    인스턴스의 자세한 설명(description 프로퍼티)까지 출력
+  
+  
+- 문자열 보간법 -
+String Interpolation
+프로그램 실행 중 문자열 내에 변수 또는 상수의 실질적인 값을 표현하기 위해 사용
+  \ () 사이에
+    let age: Int = 10
+    ex) print(“안녕하세요! 저는 \ (age)살입니다”)
+    
+    
+- 상수와 변수 -
+상수
+    상수 선언 키워드 : let
+    선언 : let 이름: 타입 = 값
+    값이 바뀌지 않음
+변수
+    변수 선언 키워드 : var
+    선언 : var 이름: 타입 = 값
+    값이 변함
+    
+    
+- 기본 데이터 타입 -
+Bool, Int, UInt, Float, Double, Character, String
+
+- Bool
+    
+    var someBool: Bool = true
+    
+- Int
+    
+    var someInt: Int = -100
+    
+- UInt
+    
+    var someUInt: UInt = 100
+    
+- Float
+    
+    var someFloat: Float = 3.14
+    
+    someFloat = 3
+    
+- Double
+    
+    var someDouble: Double = 3.14
+    
+    someDouble = 3
+    
+- Character
+    
+    var someCharacter: Character = “🇰🇷”
+    
+    someCharacter = “😆”
+    
+    someCharacter = “가”
+    
+    someCharacter = “A”
+    
+- String
+    
+    var someString: String = “하하하 😆 ”
+    
+    someString = someString + “웃으면 복이와요”
