@@ -392,3 +392,120 @@ repeat {
 intgers.removeLast()
 
 } while integers.count >0
+
+
+// 
+import UIKit
+
+// 상수(let)와 변수(var)
+let seonjin: String = "이선진 바보 멍충이"
+
+var name: String = "SeonJin Lee"
+let birthyear: Int = 2006
+
+name = "이선진"
+
+"\(birthyear)년에 태어난 \(name)은 바보 멍충이다"
+
+// 배열(Array)과 딕셔너리(Dictionary)
+// 대괄호를 이용해서 정의
+// 대괄호 안에 어떤 타입 받을 지 명시
+var languages: [String] = ["Swift", "Objective-C", "python"]
+
+var capitals: [String: String] = [
+    "한국": "서울",
+    "일본": "도쿄",
+    "중국": "베이징",
+]
+
+languages[0]  // swift
+languages[1] = "Ruby"
+
+capitals["한국"]  // 서울
+capitals["프랑스"] = "파리"
+
+// 빈 배열이나 빈 딕셔너리를 정의하고 싶다면 대괄호 쓺
+var languages2: [String] = []
+var capitals2: [String: String] = [:]
+
+// 더 간결하게 선언하고 싶다면
+var languages3 = [String]()
+var capitals3 = [String: String]()
+//타입 뒤에 괄호()를 쓰는 것은 생성자(Initializer)를 호출하는 것
+
+
+// 조건문과 반복문
+// if문
+var age = 19
+var student = ""
+
+if age >= 8 && age < 14 {
+    student = "초등학생"
+} else if age < 17 {
+    student = "중학생"
+} else if age < 20 {
+    student = "고등학생"
+} else {
+    student = "기타"
+}
+
+student  // 고등학생
+
+// switch문
+switch age {
+case 8..<14:
+    student = "초등학생"
+case 14..<17:
+    student = "중학생"
+case 17..<20:
+    student = "고등학생"
+default:
+    student = "기타"
+}
+// 8..<14 와 같이 범위 안에 age가 포함되었는지 여부 검사할 수 있음
+
+// for문
+for language in languages {
+    print("저는 \(language) 언어를 다룰 수 있습니다.")
+}
+
+for i in 0..<100 {
+    i
+}
+
+// i 대신 _사용하여 무시할 수도 이씅ㅁ
+for _ in 0..<10 {
+    print("Hello!")
+}
+
+// - 키워드는 어디서나 변수 이름 대신에 사용할 수 있음
+
+// while문
+var i = 0
+while i < 100 {
+    i += 1
+}
+
+
+// 옵셔널(Optional)
+// 값이 있을 수도 없을 수도 있는 변수를 정의할 때 타입 어노테이션에 ?를 붙여야 함 이렇게 정의한 변수를 옵셔널이라고 함
+// 옵셔널에 초깃값을 지정하지 않으면 기본값은 nil
+
+var email: String?
+print(email)  // nil
+
+email = "s22005@gsm.hs.kr"
+print(email)  // Optional("s22005@gsm.hs.kr")
+
+// let optionalemail: String? = "s22005@gsm.hs.kr" 은 되지만
+// let requiredEmail: String = optionalEmail은 컴파일 에러
+// requiredEmail은 옵셔널이 아닌 String이기 때문에 항상 값을 가지고 있어야 함 반면에
+// optionalEmail은 옵셔널로 선언된 변수이기 때문에 코드가 실행되기 전까지 값이 있는지 없는지 모름
+// 따라서 Swift 컴파일러는 안전을 위해 requiredEmail에는 옵셔널로 선언된 변수를 대입할 수 없게 만듦
+
+// 옵셔널 바인딩 (Optional Binding)
+// 옵셔널의 값을 가져오고 싶은 경우에 사용하는 것이 옵셔널 바인딩
+// 옵셔널 바인딩은 옵셔널에 값이 있는지 검사한 뒤, 존재한다면 그 값을 다른 변수에 대입시켜줌
+// if let 또는 if var를 사용함
+// 옵셔널의 값을 벗겨서 값이 있다면 if문 안으로 들어가고, 값이 nil이라면 그냥 통과하게 됨
+
