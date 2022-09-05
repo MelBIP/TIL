@@ -1,0 +1,107 @@
+package basic;
+
+public class HelloApp {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World!!");
+
+	}
+
+}
+
+
+package basic;
+
+public class 과제1 {
+
+	public static void main(String[] args) {
+		System.out.println("학번 : 10130");
+		System.out.println("이름 : 최선한");
+	}
+
+}
+
+
+package basic;
+
+public class 과제2 {
+
+	public static void main(String[] args) {
+		int number = 5;
+		System.out.println(number);
+		String Hello = "Hello world";
+		System.out.println(Hello);
+	}
+
+}
+
+
+package basic;
+
+public class 과제3 {
+
+	public static void main(String[] args) {
+		double number = 2049;
+		number = number / 45;
+		System.out.println(number);
+
+	}
+
+}
+
+
+package basic;
+
+public class 과제4 {
+	public static void main(String[] args) {
+		// 학생의 이름을 저장할 변수 : student
+		// 전화번호를 저장할 변수 : phoneNumber
+		// 나이를 저장할 변수 : age
+	}
+}
+
+
+package basic;
+
+public class 과제5 {
+	public static void main(String[] args) {
+		double radius = 15.0;
+		double area;
+		
+		area = radius * radius * 3.14;
+		System.out.println("입력된 반지름이 원의 넓이는 : " + area);
+	}
+}
+
+
+package basic;
+
+public class 과제6 {
+	public static void main(String[] args) {
+		double i;
+		i = 7 / (double)4;
+		System.out.println(i);
+	}
+}
+
+
+package basic;
+
+public class 연습문제2 {
+	public static void main(String[] args) {
+		double number = 2049;
+		number = number / 9;
+		System.out.println(number);
+	}
+}
+
+
+package basic;
+
+public class 연습문제6 {
+	public static void main(String[] args) {
+		float width = 15;
+		float height = 15;
+		System.out.println(width * height / 2);
+	}
+}
