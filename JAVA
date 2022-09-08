@@ -360,3 +360,153 @@ public class CircleDemo {
 		System.out.printf("반지름 = %.1f, 넓이 = %.1f\n", x, y);
 	}
 }
+
+
+package 객체_지향_프로그래밍;
+
+public class CircleDemo3 {
+	public static void main(String[] args) {
+		Circle2 myCircle = new Circle2();
+		
+		myCircle.setRadius(10.0);
+		
+		myCircle.show(myCircle.getRadius(), myCircle.findArea());
+
+	}
+}
+
+class Circle2 {
+	private double radius;
+	
+	public double getRadius() {
+		return radius;
+	}
+	
+	public void setRadius(double r) {
+		this.radius = r;
+	}
+	
+	double findArea() {
+		return 3.14 * radius * radius;
+	}
+	
+	void show(double x, double y) {
+		System.out.printf("반지름 = %.1f, 넓이 = %.1f\n", x, y);
+	}
+}
+
+
+package 객체_지향_프로그래밍;
+
+public class MethodChainDemo {
+	public static void main(String[] args) {
+		Person person = new Person();
+		person.setName("민국").setAge(21).sayHello();
+	}
+}
+
+class Person {
+	String name;
+	int age;
+	
+	public Person setName(String name) {
+		this.name = name;
+		return this;
+	}
+	
+	public Person setAge(int age) {
+		this.age = age;
+		return this;
+	}
+	
+	public void sayHello() {
+		System.out.println("안녕, 나는 " + name + "이고 " + age + "살이야.");
+	}
+}
+
+
+package 객체_지향_프로그래밍;
+	
+class Circle3 {
+	/*
+	 * double radius; String color;
+	 * 
+	 * public Circle(double r, String c) { radius = r; color = c; }
+	 * 
+	 * public Circle(double r) { radius = r; color = "파랑"; }
+	 * 
+	 * public Circle(String c) { radius = 10.0; color = "노랑"; }
+	 * 
+	 * public Circle() { radius = 10.0; color = "빨강"; }
+	 */
+	
+	double radius;
+	String color;
+	
+	public Circle3(double radius, String color) {
+		this.radius = radius;
+		this.color = color;
+	}
+	
+	public Circle3(Double radius) {
+		this(radius, "파랑");
+	}
+	
+	public Circle3(String color) {
+		this(10.0, color);
+	}
+	
+	public Circle3() {
+		this(10.0, "빨강");
+	}
+	
+	/*
+	 * public Circle() { radius = 10.0; this("빨강"); }
+	 * 기존 생성자를 호출하기 전에 다른 실행문이 있어 오류 발생 즉, 순서를 바꿔야 함
+	 */
+}
+
+public class CircleDemo4 {
+	public static void main(String[] args) {
+		Circle3 c1 = new Circle3(10.0, "빨강");
+		
+		Circle3 c2 = new Circle3(5.0);
+		
+		Circle3 c3 = new Circle3("노랑");
+		
+		Circle3 c4 = new Circle3();
+	}
+}
+
+
+package 객체_지향_프로그래밍;
+
+public class OneToTenDemo {
+	static int sumOneToTen;
+	
+	static {
+		int sum = 0;
+		for (int i = 1; i <= 10; i++)
+			sum += i;
+		sumOneToTen = sum;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(sumOneToTen);
+	}
+}
+
+
+package 객체_지향_프로그래밍;
+
+public class UtilDemo {
+	public static void main(String[] args) {
+		System.out.println(Util.fourTimes(5));
+	}
+}
+
+class Util {
+	static int fourTimes(int i) {
+		return i * 4;
+	}
+}
