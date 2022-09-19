@@ -701,3 +701,147 @@ public class Exercise4_7 {
 		System.out.println("sum=" + sum);
 	}
 }
+
+
+package 조건문;
+
+import java.util.Scanner;
+
+public class 연습문제8 {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		double num = in.nextDouble();
+		
+		if (num % 1 == 0) {
+			System.out.println("정수입니다.");
+		} else {
+			System.out.println("실수입니다.");
+		}
+		in.close();
+	}
+}
+
+
+package 조건문;
+
+import java.util.Scanner;
+
+public class 연습문제9 {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("정수를 입력하세요");
+		
+		int n = in.nextInt();
+		int h = n / 100;
+		int t = n / 10 % 10;
+		int o = n % 10;
+		
+		if( n >= 100) {
+		System.out.println("" + o + t + h);
+		}else if (n >= 10){
+		System.out.println(t + o);
+		}
+		
+		in.close();
+	}
+}
+
+
+package 반복문;
+
+public class 연습문제2 {
+	public static void main(String[] args) {
+		int sum = 0;
+		
+		for (int i = 1; i <= 100; i++) {
+			if (i % 2 == 0) sum += i;
+			if (i % 3 == 0) sum -= i;
+		}
+		System.out.println(sum);
+	}
+}
+
+
+package 반복문;
+
+import java.util.Scanner;
+
+public class 연습문제3 {
+	public static void main(String[] args) {
+		Scanner in = new Scanner (System.in);
+		
+		int sum = 0;
+		
+		int x = in.nextInt();
+		
+		for (int i = 0; i <= x; i++) {
+			sum += i;
+		}
+		System.out.println(sum);
+	}
+}
+
+
+package 반복문;
+
+import java.util.Scanner;
+
+public class 연습문제5 {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		int sum = 0;
+		
+		for(int i = 0; i < 5; i++) {
+		int num = in.nextInt();
+		if(num > 0) sum += num;
+		}
+		System.out.println("양수의 합 : " + sum);
+		
+		in.close();
+	}
+}
+
+
+package 반복문;
+
+import java.util.Scanner;
+
+public class 연습문제6 {
+	public static void main(String[] args) {
+		for(int i = 2; i <= 100; i++) {
+			boolean prime = true;
+			for(int j = 2; j < i; j++) {
+				if(i % j == 0) {
+					prime = false;
+					break;
+				}
+			}
+			if(prime) {
+				System.out.println(i);
+			}
+		}
+	}
+}
+
+
+package 반복문;
+
+import java.util.Scanner;
+
+public class 연습문제8 {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		int k = in.nextInt();
+		
+		for (int i = 0; i <= k; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
