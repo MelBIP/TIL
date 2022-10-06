@@ -1,0 +1,36 @@
+지정된 타입의 데이터들의 묶음
+
+굳이 지정된 타입이라고 하는 이유는 Swift에서는 컬렉션 타입들이 모두 제네릭 컬렉션(Generic Collection)으로 구현되어 있기 때문
+
+제네릭이란 컬렉션 타입에 여러 가지 타입들을 담을 수 있도록 지정할 수 있다는 의미
+
+하나의 컬렉션 타입은 하나의 타입만 담을 수 있음
+
+- Array(배열)
+    - 같은 데이터 타입의 값들을 순서대로 저장하는 리스트
+    - 순서가 있는 리스트 컬렉션
+    - var integers: Array<Int> = Array<Int>()
+    - append
+    - contains(포함이 되어 있는가 아닌가)
+    - remove(인덱스 없애달라)
+    - removeLast(마지막 삭제)
+    - removeAll(모두)
+    - [Double] (Array<Double>축약형)
+    - let 사용 → 불변 Array
+- Dictionary(딕셔너리)
+    - 키와 값의 쌍으로 이루어진 컬렉션
+    - Dictionary<String, Any> = [String: Any] ()
+    - [String: Any] (Dictionary<String, Any>축약형)
+- Set(세트)
+    - 같은 데이터 타입의 값들을 순서없이 저장하는 리스트
+    - 순서가 없고, 멤버가 유일한 컬렉션
+    - var integerSet: Set<Int> = Set<Int>()
+    - 축약 문법 X  :  축약 시 배열과 같다고 인식하기 때문에
+    - insert (요소 추가)
+    - 중복값이 없다
+    - contains(요소 있는지 없는지)
+    - remove(삭제)
+    - union(합집합)
+    - sorted(정렬)
+    - intersection(교집합)
+    - subtracting(차집합)
