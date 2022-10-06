@@ -1,0 +1,310 @@
+package 객체_지향_프로그래밍;
+
+class Phone {
+String model;
+int value;
+
+```
+void print() {
+	System.out.println(value + "만원 짜리 " + model + " 스마트폰");
+}
+
+```
+
+}
+
+public class PhoneDemo {
+public static void main(String[] args) {
+Phone myPhone = new Phone();
+myPhone.model = "갤럭시 S8";
+myPhone.value = 100;
+myPhone.print();
+
+```
+	Phone yourPhone = new Phone();
+	yourPhone.model = "G6";
+	yourPhone.value = 85;
+	yourPhone.print();
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class LocalVariableDemo {
+public static void main(String[] args) {
+int a = 0;
+double b;
+
+```
+	// System.out.print(b);   초기화되지 않고는 사용할 수 없음
+	// System.out.print(a + c);   c변수는 아직 선언되지 않았기 때문에 사용할 수 없음
+
+	int c = 0;
+
+	//public double d = 0.0;   지역변수는 public으로 지정할 수 없음
+
+	for (int e = 0; e < 10; e++) {
+		// int a = 1;   5행에서 선언된 지역변수 이름 / 블록이 달라도 같은 이름으로 재정의 할 수 X
+		System.out.print(e);
+	}
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class CircleDemo2 {
+public static void main(String[] args) {
+Circle myCircle = new Circle();
+
+```
+	myCircle.radius = 10.0;
+
+	myCircle.show(myCircle.radius, myCircle.findArea());
+}
+
+```
+
+}
+
+class Circle {
+double radius;
+
+```
+double findArea() {
+	return 3.14 * radius * radius;
+}
+
+void show(double x, double y) {
+	System.out.printf("반지름 = %.1f, 넓이 = %.1f\\n", x, y);
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class CircleDemo {
+public static void main(String[] args) {
+radius = 10.0;
+
+```
+	double area = findArea();
+
+	show(radius, area);
+}
+
+static double radius;
+
+static double findArea() {
+	return 3.14 * radius * radius;
+}
+static void show(double x, double y) {
+	System.out.printf("반지름 = %.1f, 넓이 = %.1f\\n", x, y);
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class CircleDemo3 {
+public static void main(String[] args) {
+Circle2 myCircle = new Circle2();
+
+```
+	myCircle.setRadius(10.0);
+
+	myCircle.show(myCircle.getRadius(), myCircle.findArea());
+
+}
+
+```
+
+}
+
+class Circle2 {
+private double radius;
+
+```
+public double getRadius() {
+	return radius;
+}
+
+public void setRadius(double r) {
+	this.radius = r;
+}
+
+double findArea() {
+	return 3.14 * radius * radius;
+}
+
+void show(double x, double y) {
+	System.out.printf("반지름 = %.1f, 넓이 = %.1f\\n", x, y);
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class MethodChainDemo {
+public static void main(String[] args) {
+Person person = new Person();
+person.setName("민국").setAge(21).sayHello();
+}
+}
+
+class Person {
+String name;
+int age;
+
+```
+public Person setName(String name) {
+	this.name = name;
+	return this;
+}
+
+public Person setAge(int age) {
+	this.age = age;
+	return this;
+}
+
+public void sayHello() {
+	System.out.println("안녕, 나는 " + name + "이고 " + age + "살이야.");
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+class Circle3 {
+/*
+* double radius; String color;
+*
+* public Circle(double r, String c) { radius = r; color = c; }
+*
+* public Circle(double r) { radius = r; color = "파랑"; }
+*
+* public Circle(String c) { radius = 10.0; color = "노랑"; }
+*
+* public Circle() { radius = 10.0; color = "빨강"; }
+*/
+
+```
+double radius;
+String color;
+
+public Circle3(double radius, String color) {
+	this.radius = radius;
+	this.color = color;
+}
+
+public Circle3(Double radius) {
+	this(radius, "파랑");
+}
+
+public Circle3(String color) {
+	this(10.0, color);
+}
+
+public Circle3() {
+	this(10.0, "빨강");
+}
+
+/*
+ * public Circle() { radius = 10.0; this("빨강"); }
+ * 기존 생성자를 호출하기 전에 다른 실행문이 있어 오류 발생 즉, 순서를 바꿔야 함
+ */
+
+```
+
+}
+
+public class CircleDemo4 {
+public static void main(String[] args) {
+Circle3 c1 = new Circle3(10.0, "빨강");
+
+```
+	Circle3 c2 = new Circle3(5.0);
+
+	Circle3 c3 = new Circle3("노랑");
+
+	Circle3 c4 = new Circle3();
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class OneToTenDemo {
+static int sumOneToTen;
+
+```
+static {
+	int sum = 0;
+	for (int i = 1; i <= 10; i++)
+		sum += i;
+	sumOneToTen = sum;
+}
+
+public static void main(String[] args) {
+	System.out.println(sumOneToTen);
+}
+
+```
+
+}
+
+package 객체_지향_프로그래밍;
+
+public class UtilDemo {
+public static void main(String[] args) {
+System.out.println(Util.fourTimes(5));
+}
+}
+
+class Util {
+static int fourTimes(int i) {
+return i * 4;
+}
+}
+
+package 문자열;
+
+public class Basic1 {
+public static void main(String[] args) {
+// Ctrl + Alt + 방향키
+String str1 = "abc";
+String str2 = "abc";
+String str3 = "abcde";
+System.out.println(str1);
+System.out.println(str2);
+System.out.println(str3);
+
+```
+	// 객체 주소(해시 코드) 값을 구하기 위해 System.identityHashCode() 사용
+	System.out.println(System.identityHashCode(str1));
+	System.out.println(System.identityHashCode(str2));
+	System.out.println(System.identityHashCode(str3));
+
+	str1 = "abcde";
+	System.out.println(str1);
+	System.out.println(System.identityHashCode(str1));
+}
+
+```
+
+}
