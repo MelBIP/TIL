@@ -1,0 +1,119 @@
+if-else, switch
+
+let someInteger = 100
+
+1. is-else
+    
+    ```swift
+    if condition {
+    
+    statements
+    
+    } else if condition {
+    
+    statements
+    
+    } else {
+    
+    statements
+    
+    }
+    
+    if someInteger < 100 {
+    
+    print(”100 미만”)
+    
+    } else if someInteger > 100 {
+    
+    print(”100 초과”)
+    
+    } else {
+    
+    print(”100”
+    
+    } // 100
+    ```
+    
+    스위프트의 조건에는 항상 Bool 타입이 들어와야 함
+    
+    SomeInteger는 Bool 타입이 아닌 Int 타입이기 때문에 컴파일 오류 발생
+    
+2. switch
+    
+    ```swift
+    switch value {
+    
+    case pattern:
+    
+    code
+    
+    default:
+    
+    code
+    
+    }
+    ```
+    
+    범위 연산자 활용하면 더욱 쉽고 유용
+    
+    a … b - a와 b를 포함한 a에서 b사이의 정수
+    
+    a ..< b - a부터 b - 1까지
+    
+    ```swift
+    switch someInteger {
+    
+    case 0:
+    
+    print(”zoro”)
+    
+    case 1..<100:
+    
+    print(”1~99”)
+    
+    case 100:
+    
+    print(”100”)
+    
+    case 101…Int.max:
+    
+    print(”over 100”)
+    
+    default:
+    
+    print(”unknown”)
+    
+    } // 100
+    ```
+    
+    정수 외의 대부분의 기본 타입 사용 가능
+    
+    ```swift
+    switch “yagom” {
+    
+    case “jake”:
+    
+    pirnt(”jake”)
+    
+    case “mina”:
+    
+    print(”mina”)
+    
+    case “yagom”:
+    
+    print(”yagom!!”)
+    
+    default:
+    
+    print(”unknown”)
+    
+    } // yagom!!
+    ```
+    
+    명확히 case가 다 명시되지 않는 한 default 구문을 무조건 써야 함
+    
+    case다음에 break를 안 해도 break가 걸림
+    
+    같이 쓰고 싶다면 case “jake”, “mina”
+    
+    fallthrough 쓰면 다음 것도 같이
