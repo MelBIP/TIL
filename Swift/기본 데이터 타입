@@ -1,0 +1,41 @@
+Bool, Int, UInt, Float, Double, Character, String
+
+- Bool
+    
+    var someBool: Bool = true
+    
+- Int
+    
+    var someInt: Int = -100
+    
+- UInt
+    
+    var someUInt: UInt = 100
+    
+- Float
+    
+    var someFloat: Float = 3.14
+    
+    someFloat = 3
+    
+- Double
+    
+    var someDouble: Double = 3.14
+    
+    someDouble = 3
+    
+- Character
+    
+    var someCharacter: Character = “🇰🇷”
+    
+    someCharacter = “😆”
+    
+    someCharacter = “가”
+    
+    someCharacter = “A”
+    
+- String
+    
+    var someString: String = “하하하 😆 ”
+    
+    someString = someString + “웃으면 복이와요”
