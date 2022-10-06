@@ -1,0 +1,51 @@
+package 조건문;
+
+import java.util.Scanner;
+
+public class 연습문제8 {
+public static void main(String[] args) {
+Scanner in = new Scanner([System.in](http://system.in/));
+
+```
+	double num = in.nextDouble();
+
+	if (num % 1 == 0) {
+		System.out.println("정수입니다.");
+	} else {
+		System.out.println("실수입니다.");
+	}
+	in.close();
+}
+
+```
+
+}
+
+package 조건문;
+
+import java.util.Scanner;
+
+public class 연습문제9 {
+public static void main(String[] args) {
+Scanner in = new Scanner([System.in](http://system.in/));
+
+```
+	System.out.println("정수를 입력하세요");
+
+	int n = in.nextInt();
+	int h = n / 100;
+	int t = n / 10 % 10;
+	int o = n % 10;
+
+	if( n >= 100) {
+	System.out.println("" + o + t + h);
+	}else if (n >= 10){
+	System.out.println(t + o);
+	}
+
+	in.close();
+}
+
+```
+
+}
