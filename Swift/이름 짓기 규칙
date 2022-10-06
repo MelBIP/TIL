@@ -1,0 +1,3 @@
+- Lower Camel Case : function, method, variable, constant
+- Upper Camel Case : type(class, struct, enum, extension…)
+- 대소문자 구분
