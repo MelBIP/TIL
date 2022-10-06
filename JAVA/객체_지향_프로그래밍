@@ -308,3 +308,17 @@ System.out.println(str3);
 ```
 
 }
+
+public class Basic2 {
+public static void main(String[] args) {
+String str1 = "ABC";
+String str2 = new String("ABC");
+
+```
+	System.out.println(System.identityHashCode(str1));
+	System.out.println(System.identityHashCode(str2));
+}
+
+```
+
+}
