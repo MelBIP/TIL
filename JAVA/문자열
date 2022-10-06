@@ -1,0 +1,173 @@
+package 문자열;
+
+public class String1 {
+public static void main(String[] args) {
+String s1 = "Hi, Java!";
+String s2 = "Hi, Java!";
+String s3 = new String("Hi, Java!");
+String s4 = new String("Hi, Java!");
+
+```
+	System.out.println(s1 == s2);
+	System.out.println(s2 == s3);
+	System.out.println(s3 == s4);
+
+	s1 = s3;
+	System.out.println(s1 == s3);
+}
+
+```
+
+}
+
+package 문자열;
+
+public class String2 {
+public static void main(String[] args) {
+String s1 = "pizza";
+String s2 = new String("pizza");
+String s3 = "chicken";
+String s4 = "Pizza";
+
+```
+	// 문자열 s1과 s2가 가리키는 내용이 같으면 true, 다르면 false를 반환
+	// s1은 원본 문자열, s2는 비교 문자열
+	System.out.println(s1.equals(s2));
+	System.out.println(s1.equals(s3));
+	System.out.println(s1.equals(s4));
+
+	System.out.println(s1.equalsIgnoreCase(s4));
+
+	// 문자열 s1과 s2가 가리키는 내용이 같으면 0, 다르면 0이 아닌 정수 반환
+	System.out.println(s1.compareTo(s2));
+	System.out.println(s1.compareTo(s3));
+	System.out.println(s1.compareTo(s4));
+
+	System.out.println(s1.compareToIgnoreCase(s4));
+}
+
+```
+
+}
+
+package 문자열;
+
+public class String3 {
+public static void main(String[] args) {
+String s1 = "Hi, ";
+String s2 = "Java";
+String s3, s4;
+
+```
+	System.out.println("문자열 길이 : " + s1.length());
+	char c = s1.charAt(1);
+	System.out.println(c);
+
+	s1 = s1.concat(s2);
+
+	s3 = s1.toLowerCase();
+	s4 = s1.substring(4, 8);
+
+	System.out.println(s1 + "!");
+	System.out.println(s3 + "!");
+	System.out.println(s4 + "!");
+}
+
+```
+
+}
+
+package 문자열;
+
+public class Test2 {
+public static void main(String[] args) {
+String s1 = "051215-3123456";
+
+```
+	if (s1.length() == 14) {
+		System.out.println("20" + s1.substring(0, 2) + "년 " + s1.substring(2, 4) + "월 " + s1.substring(4, 6) + "일");
+	}
+	if (s1.substring(2, 4).equals("12")) {
+		System.out.println("12월 생입니다");
+	}
+}
+
+```
+
+}
+
+package 문자열;
+
+import java.util.Scanner;
+
+public class Test2_1 {
+public static void main(String[] args) {
+Scanner in = new Scanner([System.in](http://system.in/));
+
+```
+	System.out.print("주민번호 입력 ex)051205-3123456 : ");
+	String num = in.next();
+
+	switch(num.substring(7, 8)) {
+	case "1":
+	case "3":
+		System.out.println("남자입니다");
+		break;
+	case "2":
+	case "4":
+		System.out.println("여자입니다");
+	}
+}
+
+```
+
+}
+
+package 문자열;
+
+public class String4 {
+public static void main(String[] args) {
+int i = 7;
+System.out.println("Java " + i);
+System.out.println("Java " + 7);
+System.out.println(7 + 1 + "Java " + 7 + 1);
+}
+}
+
+package 문자열;
+
+public class String5 {
+public static void main(String[] args) {
+String version = String.format("%s-%d", "jdk", 14);
+System.out.println(version);
+
+```
+	String fruits = String.join("-", "apple", "banana", "cherry", "durian");
+	System.out.println(fruits);
+
+	String pi = String.valueOf(3.14);
+	System.out.println(pi);
+}
+
+```
+
+}
+
+package 문자열;
+
+public class Exercise4_7 {
+public static void main(String[] args) {
+String str = "12345";
+int sum = 0;
+
+```
+	for (int i = 0; i < str.length(); i++) {
+		sum += ((str.charAt(i) - '1') + 1);
+	}
+
+	System.out.println("sum=" + sum);
+}
+
+```
+
+}
