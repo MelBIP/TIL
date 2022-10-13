@@ -1,0 +1,32 @@
+// for - in
+for item in itmes {
+  code
+}
+
+for intger in inegers {
+  print(intger)
+}
+
+for (name, age) in people {
+  print(”\(name): \(age)”)
+}
+
+
+// while
+while condition {
+  code
+}
+
+while intgers.count > 1 {
+  intgers.removeLast()
+}
+
+
+// repeat - while
+repeat {
+  code
+} while condition 
+
+repeat {
+  intgers.removeLast()
+}  while intgers.count > 0
