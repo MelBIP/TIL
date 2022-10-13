@@ -1,0 +1,70 @@
+//class
+
+class 이름 {
+  구현부
+}
+타입 메서드
+
+
+// 재정의 불가 타입 메서드 - static
+static func typeMethod() {
+
+print(”type metho - static”)
+
+}
+
+
+// 재정의 가능 타입 메서드 - class
+class func classMethod() {
+
+print(”type method - class”)
+
+)
+
+var mutableReference: Sample = Sample()
+
+mutableReference.mutableProperty = 200
+
+let immutableReference: Sample = Sample()
+
+
+// 타입 프로퍼티 및 메서드
+Sample.typeProperty = 300
+
+Sample.typeMethod() // type method
+
+class Student {
+
+var name: String = “unknown”
+
+var ‘class’: String = “Swift”
+
+class func selfIntroduce() {
+
+pirnt(”학생타입입니다”)
+
+}
+
+func selfIntroduce() {
+
+print(”저는 \(self.class)반 \(name)입니다”)
+
+}
+
+}
+
+Student.selfIntrouduce() // 학생타입입니다
+
+var yagom: Student = Student()
+
+yagom.name = “yagom”
+
+yagom.class = “스위프트”
+
+yagom.selfIntrouduce()  // 저는 스위프트반 yagom입니다
+
+let jina: Student = Student()
+
+jina.name = “jina”
+
+jina.selfIntroduce() // 저는 Swift반 jina입니다
