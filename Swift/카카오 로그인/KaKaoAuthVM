@@ -1,0 +1,88 @@
+//
+//  KakaoAuthVM.swift
+//  kakao_login
+//
+//  Created by 김주은 on 2022/11/07.
+//
+
+import Foundation
+import Combine
+import KakaoSDKAuth
+import KakaoSDKUser
+
+class KakaoAuthVM: ObservableObject {
+    
+    var subscriptions = Set<AnyCancellable>()
+    
+    @Published var isLoggdIn: Bool = false
+    
+    init() {
+        print("KakaoAuthVM - handleKakaoLogin() called")
+    }
+    
+    
+    // 카카오톡 앱으로 로그인 인증
+    func kakaoLoginWithApp() async -> Bool {
+        await withCheckedContinuation{ continuation in
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                    continuation.resume(returning: false)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+                    //do something
+                    _ = oauthToken
+                    continuation.resume(returning: true)
+                }
+            }
+        }
+        
+    }
+    
+    
+    // 카카오 계정으로 로그인
+    func kakaoLoginWithAccount() async -> Bool {
+        await withCheckedContinuation{ continuation in
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                    if let error = error {
+                        print(error)
+                        continuation.resume(returning: false)
+                    }
+                    else {
+                        print("loginWithKakaoAccount() success.")
+                        //do something
+                        _ = oauthToken
+                        continuation.resume(returning: true)
+                    }
+                }
+        }
+       
+    }
+    
+    func handleKakaoLogin() {
+        print("KakaoAuthVM - handleKakaoLogin() called")
+        Task {
+            // 카카오톡 설치 여부 확인
+            if (UserApi.isKakaoTalkLoginAvailable()) {
+                
+                
+            } else {  // 카톡이 설치가 안 되어 있으면
+                           
+            }
+        }
+    }  // login
+    
+    
+    func kakaoLogout() {
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("logout() success.")
+            }
+        }
+    }
+    
+}
