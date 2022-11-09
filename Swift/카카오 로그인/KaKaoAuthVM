@@ -60,27 +60,43 @@ class KakaoAuthVM: ObservableObject {
        
     }
     
-    func handleKakaoLogin() {
+    @MainActor
+    func kakaoLogin() {
         print("KakaoAuthVM - handleKakaoLogin() called")
         Task {
             // 카카오톡 설치 여부 확인
             if (UserApi.isKakaoTalkLoginAvailable()) {
-                
+                // 카카오 앱으로 로그인 인증
+                isLoggdIn = await kakaoLoginWithApp()
                 
             } else {  // 카톡이 설치가 안 되어 있으면
-                           
+                // 카카오 계정으로 로그인
+                isLoggdIn = await kakaoLoginWithAccount()
             }
         }
     }  // login
     
-    
+    @MainActor
     func kakaoLogout() {
-        UserApi.shared.logout {(error) in
-            if let error = error {
-                print(error)
+        Task {
+            if await handleKakaoLogout() {
+                self.isLoggdIn = false
             }
-            else {
-                print("logout() success.")
+        }
+    }
+    
+    func handleKakaoLogout() async -> Bool  {
+        
+        await withCheckedContinuation { continuation in
+            UserApi.shared.logout {(error) in
+                if let error = error {
+                    print(error)
+                    continuation.resume(returning: false)
+                }
+                else {
+                    print("logout() success.")
+                    continuation.resume(returning: true)
+                }
             }
         }
     }
