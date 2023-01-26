@@ -1,0 +1,200 @@
+# 코코아팟
+
+## 코코아팟이란?
+
+Swift 및 Objective-C 언어 환경 프로젝트의 의존성을 관리해주는 도구
+
+## 코코아팟 설치하기
+
+![스크린샷 2023-01-16 오후 8.17.26.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/133dab65-2f24-48c3-a0f7-89560c89899d/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.17.26.png)
+
+코코아팟은 기본적으로 Ruby로 개발되어 있어, macOS에 기본적으로 설치되어 있는 Ruby로 설치 가능
+
+터미널에서 `sudo gem install cocoapods`명령어를 입력
+
+## Pod 설치하기
+
+![스크린샷 2023-01-16 오후 8.18.40.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1fa0d4b4-870a-4166-86ae-9570ce778124/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.18.40.png)
+
+프로젝트 경로로 이동하여 코코아팟을 프로젝트에 연동 후 `pod init`명령어를 실행하면 의존성을                    관리할 ***Podfile***이 생성
+
+![스크린샷 2023-01-16 오후 8.19.57.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae2e9cb6-baf4-4b4d-a0b5-ee4933927402/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.19.57.png)
+
+podfile 초기화
+
+![스크린샷 2023-01-16 오후 8.20.20.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ff806279-bb41-4ac5-9cfd-a2d63f04ecb3/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.20.20.png)
+
+***Podfile*** 을 열어 사용할 Pod를 명시
+
+![스크린샷 2023-01-16 오후 8.34.40.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0cc8d840-ab5a-4198-b2f0-64aa63ea8ddc/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.34.40.png)
+
+```swift
+target 'MyApp' do
+  use_frameworks!
+  pod 'Alamofire', '~> 3.0'
+end
+```
+
+위 명령어를 실행하면 명시된 Pod 라이브러리들을 프로젝트로 받아오게 됨
+
+이 후부터는 `.xcodeproj`가 아닌 `.xcworkspace`프로젝트 파일을 열어 작업을 해야함
+
+`.xcworkspace`는 `.xcodeproj`의 모음, 즉 Xcode 프로젝트를 워크스페이스라는 하나의 작업공간으로 
+
+묶어놓은 단위
+
+여러 Xcode 프로젝트의 의존성을 연결할 수 있는 방법
+
+그래서 코코아팟을 통해 라이브러리를 가져오면 기존 프로젝트와 의존성을 맺어주기 위해 워크스페이스를 생성
+
+처음에 생성한 프로젝트와 받아온 Pod들을 묶어서 하나의 워크스페이스로 구성하여 기존 프로젝트 이름과 동일한 이름의 워크스페이스를 만듦
+
+Pods 프로젝트가 전역으로 관리되는 것은 아님 
+
+워크스페이스에 여러개의 프로젝트가 포함되어 있다면 Podfile에서 각 프로젝트에 원하는 라이브러리 의존성을 추가하여 개별적으로 사용할 수도 있음
+
+```swift
+platform :ios, '13.0'
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+workspace 'MyApp'
+
+target 'MyApp1' do
+    project 'MyApp1/MyApp1'
+
+    pod 'SwiftSVG'
+    pod 'SwiftLint'
+end
+
+target 'MyApp2' do
+    project 'MyApp2/MyApp2'
+
+    pod 'Kingfisher'
+    pod 'Alamofire'
+end
+```
+
+이제 사용하고 싶은 라이브러리를 해당 프로젝트에서 import 하여 사용하면 됨
+
+```swift
+import Alamofire
+```
+
+## Podfile?
+
+****가져올 Pod의 버전 명시****
+
+항상 최신 버전의 라이브러리를 사용하고 싶다면 따로 Pod 버전을 명시하지 않으면 됨
+
+```swift
+pod 'Alamofire'
+```
+
+한 버전을 특정할 수도 있음
+
+```swift
+pod 'Alamofire', '1.0'
+```
+
+버전에 대하여 조건을 명시할 수도 있음
+
+- `> 0.1` 0.1 보다 높은 버전
+- `>= 0.1` 0.1 이고 보다 높은 버전
+- `< 0.1` 0.1 보다 낮은 버전
+- `<= 0.1` 0.1 이고 보다 낮은 버전
+
+부등호 이외에 `~>`연산자를 활용할 수 있음
+
+- `~> 0.1.2` 0.1.2 이상이지만 0.2 보다는 낮은 버전 (0.2는 포함하지 않음)
+- `~> 0.1` 0.1 이상이지만 1.0 보다는 낮은 버전 (1.0은 포함하지 않음)
+- `~> 0` 실질적으로 포함시키지 않는다는 의미버전 정책에 대한 좀 더 자세한 사항은 [Semantic Versioning](http://semver.org/) 을 참고하시면 좋습니다.
+
+## Podfile.lock?
+
+`pod install`을 하고나면 ***Podfile***이외에 ***Podfile.lock***이라는 파일이 같이 생김
+
+***Podfile.lock***은 pod들의 버전을 계속 추적하여 기록해놓고 유지시키는 역할 
+
+또한 ***Podfile.lock***에는 유일성을 보증하는 해쉬값인 CHECKSUM이 부여
+
+만약 pod 버전에 하나라도 변화가 생긴다면 CHECKSUM 또한 변하게 되는 것 
+
+이 경우엔 Git을 사용할 경우 ***Podfile.lock***이 diff로 잡히게 됨 
+
+CHECKSUM이 변함없이 유지된다는 것은 협업하는 환경에서는 pod 버전을 모두가 
+
+동일하게 사용하고 있음을 의미 
+
+그러므로 pod 버전을 업데이트 했다면 **Podfile.lock**도 같이 커밋해야함
+
+```swift
+PODS:
+  - Alamofire (4.8.2)
+  - Crashlytics (3.13.2)
+  .
+  .
+  .
+PODFILE CHECKSUM: f647c0698abc31d48952ce58077we758abse2
+```
+
+## 명령어
+
+### pod install
+
+프로젝트에 pod을 맨 처음에 세팅하기 위하여 사용 
+
+또, ***Podfile***에 pod을 **추가, 수정, 삭제**할 때에도 사용 
+
+***Podfile***에서 pod의 버전 조건을 수정한 후 `pod install`하면 다른 버전의 pod을 가져오고, 
+
+***Podfile***에서 pod을 추가하고 `pod install`명령어를 실행하면 **새로운 pod을 다운받고 설치**
+***Podfile***에서 pod을 삭제하고 `pod install`하면 기존의 pod을 삭제
+
+그리고 각 pod 마다 설치된 버전을 ***Podfile.lock***에 기록 
+
+`pod install`을 실행하면, ***Podfile.lock***에 리스트된 팟들에 대해선 지정된 버전만 다운 
+
+새로운 버전이 존재하는지 체크하지 않는 것 
+
+***Podfile.lock***에 리스트되지 않은 팟들은 ***Podfile***에 명시된 버전 조건으로 검색하여 다운로드
+
+### pod update
+
+코코아팟은 해당 팟의 업데이트된 버전이 있는지 검색
+
+***Podfile.lock***을 참조하지 않음
+
+이 명령어는 팟을 **최신 버전으로 업데이트**시켜주는 것 (단, Podfile에 명시해둔 Pod의 버전 조건과 일치해야함) 
+
+단순하게 `pod update`를 실행시하면 코코아팟은 모든 현재 프로젝트의 팟에 대해 Podfile에 명시해둔 
+
+버전조건에 부합하는 최신 버전으로 업데이트를 실행
+
+![스크린샷 2023-01-16 오후 8.49.53.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b413395b-8605-4d9e-adb5-17e26e2c48e9/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.49.53.png)
+
+### pod outdated
+
+`pod outdated`를 실행하면, 코코아팟은 ***Podfile.lock***에 리스트된 것보다 새로운 버전을 가진 모든 팟을 나열
+
+이 팟들에 대해 `pod update {팟이름}`을 실행한다면 업데이트가 될 것이라는 것을 의미 
+
+(단, Podfile의 버전 조건과 일치해야 함)
+
+### pod repo update
+
+`/Users/{사용자이름}/.cocoapods/repos` 에 있는 모든 `podspec` 파일을 업데이트
+
+`podspec` 파일에는 해당 pod 의 주소 등 중요한 정보들이 담겨있음 
+
+```
+spec.source = { :git => 'https://github.com/Alamofire/Alamofire.git', :tag => 'v3.1.1' }
+```
+
+`.cocoapods/repos` 에는 모든 pod에 대해 가능한 버전들의 `podspec` 파일들이 모여있음 
+
+`pod repo update` 를 실행하게 되면 최신 `podspec` 파일들로 업데이트되게 되는 것 
+
+추가한 라이브러리에 대한 `podspec` 이 업데이트되지 않아 오류가 날 경우 이 명령어를 통하여 해결할 수 있음
+
+![스크린샷 2023-01-16 오후 8.51.51.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/76966747-3a03-4ab8-a815-665b99097674/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_8.51.51.png)
