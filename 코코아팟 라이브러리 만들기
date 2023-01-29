@@ -1,0 +1,56 @@
+## 코코아팟 프로젝트 생성
+
+![스크린샷 2023-01-16 오후 9.00.37.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5b2bb0c8-cc63-4bf7-b3fa-e487dbd3bf3f/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.00.37.png)
+
+프로젝트 생성을 원하는 디렉토리로 이동하여 `pod lib create {라이브러리명}`명령어 실행
+
+* 예시는 원하는 디렉토리로 이동X
+
+![스크린샷 2023-01-16 오후 9.02.23.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ef0c44eb-d1c4-489e-ab95-ce970cc8da72/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.02.23.png)
+
+코코아팟 프로젝트 진행에 대한 간단한 물음 5가지
+
+![스크린샷 2023-01-16 오후 9.02.54.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9328d303-1d87-419c-b93d-b496e400de5b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-16_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.02.54.png)
+
+****Q1) What platform do you want to use?? [ iOS / macOS ]****
+
+실습은 iOS 애플리케이션을 기준으로 진행하기 때문에 iOS를 선택
+
+****Q2) What language do you want to use?? [ Swift / ObjC ]****
+
+언어는 Swift 와 Objective-C 중에서 선택할 수 있음 
+
+언어에 따라 4번째 질문인 선택할 수 있는 Testing Framework 가 달라짐 
+
+언어는 Swift 를 선택
+
+****Q3) Would you like to include a demo application with your library? [ Yes / No ]****
+이 질문은 라이브러리 안에 데모 애플리케이션 포함 여부에 대한 질문 
+
+데모 애플리케이션 포함 여부에 대한 선택은 다른 질문으로 쉽게 답을 고를 수 있음 
+
+바로 **"이 라이브러리에 대한 화면 스크린샷이 필요한지?"**
+
+이번 실습은 화면에 나타나는 알럿이 주요 기능이기 때문에 Yes를 선택
+
+****Q4-1) Which testing frameworks will you use? [ Specta / Kiwi / None ]****
+
+****Q4-2) Which testing frameworks will you use? [ Quick / None ]****
+
+4번째 질문은 2개로 나뉨
+
+Q2에서 언어를 **Objc**를 골랐다면 Q4-1로 나올 것이고, **Swift**를 선택했다면 Q4-2 
+
+이 질문은 테스트를 위한 프레임워크를 추가적으로 사용할 것인지에 대한 질문 
+
+사용하지 않는다면 기본으로 제공되는 Apple의 XCTest를 사용하면 됨 
+
+이번 예제에서는 추가적인 프레임워크는 선택하지 않도록 하겠음
+
+****Q5) Would you like to do view based testing? [ Yes / No ]****
+
+마지막 질문으로 뷰 기반의 테스트를 진행할 것인지 묻고 있음
+
+Yes를 선택한다면 페이스북에서 만든 스냅샷 기반의 테스트 오픈소스인 [FBSnapshotTestCase](https://github.com/facebookarchive/ios-snapshot-test-case)를 포함
+
+이번에는 No를 선택
