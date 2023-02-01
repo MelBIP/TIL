@@ -100,3 +100,56 @@ Yes를 선택한다면 페이스북에서 만든 스냅샷 기반의 테스트 �
 명령어 실행 후 Github 아이디와 비밀번호를 입력하고 나면 업로드가 완료 
 
 앞으로 Git을 통하여 버전 관리를 하게 될 것이므로 Git에 대한 공부는 **필수**
+
+### 소스코드 작성
+
+디렉토리를 살펴보면, 크게 `YYSimpleAlert`프로젝트와 `Pods` 프로젝트로 나뉜 것을 볼 수 있음
+
+`YYSimpleAlert` 프로젝트 하위의 `Example for YYSimplerAlert`는 데모 애플리케이션을 구현할 수 있는 영역 
+
+`YYSimpleAlert`을 개발한 후 실제 라이브러리를 사용하는 입장에서 테스트할 수 있는 것 
+
+`YYSimpleAlert`을 개발하는 곳은 코코아팟에서 친절하게도 `ReplaceMe`라고 명시해 놓았으
+
+실제 이 부분을 Finder 를 통해 열어보면 **Classes** 폴더와 **Assets** 폴더로 나뉨 
+
+명칭에서 알 수 있듯이 Classes 폴더에는 소스 파일이 위치할 것이고 Assets 폴더에는 이미지나 폰트 등의 파일이 위치하도록 구성되어져 있음 
+
+이 위치는 `.podspec` 에서 `s.source_files` 와 `s.resources`에서 경로를 지정해 준 것을 확인할 수 있음
+
+`ReplaceMe.swift` 의 위치는 예상하다시피 Classes 폴더 하위에 존재
+
+이 디렉토리 방식은 원하는대로 변경이 가능
+
+하지만 변경한 후에는 `.podspec` 에 변경한 경로를 명시해 주어야 함
+
+![스크린샷 2023-02-01 오후 11.11.18.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c943212d-bd7f-49cf-ba92-9226030e973e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-01_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.11.18.png)
+
+파일 이름을 `YYSimpleAlert.swift` 로 변경한 후 안에 내용을 작성해 주었음 
+
+전체 소스 코드는 [YYSimpleAlert](https://github.com/DevYeom/YYSimpleAlert)에 공개 
+
+구현한 방법은 예제로 사용하기 위하여 매우 간단한 방법으로 구현되어져 있음 
+
+오픈소스 라이브러리를 제작할 때 신경써줘야하는 부분은 바로 **접근제어자**(Access Control)
+
+접근제어자는 **open, public, internal, fileprivate, private** 총 5가지가 있음 
+
+명시하지 않을 경우 기본값은 internal 이며 open -> public -> internal -> fileprivate -> private 순으로 더 제한적
+
+`YYSimpleAlert`클래스는 **open**이나 **public**으로 선언되어야 함 
+
+왜냐하면 이 클래스는 다른 모듈에서 접근할 필요가 있기 때문
+
+예제에서 `YYSimpleAlert` 클래스를 **open**으로 선언한 이유는 다른 모듈에서 선언된 클래스에서 상속을 가능하게 할 수 있기 때문 
+
+만약 **public**으로 선언한다면 다른 모듈에서 접근은 가능하지만 상속을 받을 수는 없음 
+
+이외에 외부의 접근을 불가능하도록 프로퍼티들은 private 으로 선언한 것을 볼 수 있음
+
+어떤 것을 어느 정도 까지 제한할 것인지는 적절하게 판단하여 접근제어자를 활용하면 됨
+
+데모 애플리케이션 화면에는 Alert 출력을 요청할 버튼 하나가 있으며 버튼을 클릭하면 `YYSimpleAlert`
+이 나타남
+
+![스크린샷 2023-02-01 오후 11.14.15.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/352dc76c-f293-4303-a2da-ac457012fa0e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-01_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.14.15.png)
