@@ -15,3 +15,11 @@
 `.podspec` 파일에 Swift 버전을 명시하지 않아 오류가 발생 그리고 `simctl` 를 찾지 못하여 오류가 발생
 
 먼저 `.podspec` 파일에 `swift_versions` 항목을 명시해주도록 하겠음
+
+Pod::Spec.new do |s|
+  ...
+  (생략)
+  ...
+
+  s.swift_versions = '5.0'
+end
