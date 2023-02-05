@@ -23,3 +23,5 @@ Pod::Spec.new do |s|
 
   s.swift_versions = '5.0'
 end
+
+simctl 의 오류의 원인은 Xcode설정(⌘ + ，)에서 해결할 수 있음
