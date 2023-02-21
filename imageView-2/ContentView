@@ -19,6 +19,17 @@ struct ContentView: View {
                             .cornerRadius(20)
                             .padding(10)
                     }
+                    NavigationLink (destination: MyWebview(urlToLoad: "https://github.com/MelBIP")
+                    ) {
+                        Text ("깃허브 팔로우 ㄱ")
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                            .padding(20)
+                            .background(Color.yellow)
+                            .cornerRadius(20)
+                            .padding(10)
+                    }
                 }
             }
         }
