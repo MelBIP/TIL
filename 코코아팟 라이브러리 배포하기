@@ -45,3 +45,27 @@ Command Line Tools 이 설정되어 있지 않아 발생한 오류
 검증에 성공하면 **초록색 글씨**로 `pass` 하였다고 알려줌 이제 배포할 준비 완료
 
 ### 배포하기
+
+****계정 인증****
+
+![스크린샷 2023-02-27 오후 10.31.22.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1aa3b89b-af51-4fbe-b21d-2f9da079248e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-27_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.31.22.png)
+
+먼저 코코아팟에 계정을 등록해줌 `pod trunk register {이메일} {이름}`으로 작성하여 실행하면 기입한 주소로 이메일이 오게 됨 새로운 컴퓨터에서 작업을 할 때마다 해주어야 하는 작업 중 하나
+
+![스크린샷 2023-02-27 오후 10.32.38.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2085aa7-c598-4bfd-90e6-2e6a36729eba/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-27_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.32.38.png)
+
+이메일에 첨부된 링크를 클릭하면 인증이 완료
+
+****배포****
+
+![스크린샷 2023-02-27 오후 10.33.07.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3d36f8d-93ff-49de-911d-bdc76e811dfe/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-27_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.33.07.png)
+
+`pod trunk push {라이브러리명}.podspec` 을 실행 `pod spec lint` 를 통하여 검증을 완료하였으니 문제 없이 배포될 것
+
+![스크린샷 2023-02-27 오후 10.33.49.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce0451d3-2f6f-459b-9369-90d9be94ad36/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-27_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.33.49.png)
+
+기분 좋은 메시지와 함께 배포가 완료된 것을 알 수 있음
+
+![스크린샷 2023-02-27 오후 10.34.17.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5148d8a-702c-479a-ac4b-0dfc5e1777de/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-02-27_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.34.17.png)
+
+[Github 저장소 페이지](https://github.com/DevYeom/YYSimpleAlert)를 방문하게 되면 `pod` 뱃지가 활성화 된 것을 확인할 수 있음 `README.md` 파일은 보통 라이브러리 사용자를 위하여 사용법과 스크린샷 등을 첨부하여 꾸미곤 함
