@@ -1,0 +1,73 @@
+**UIHostingController 사용**
+
+UIHostingController란?
+
+: UIViewController의 서브 클래스며, init:rootView: 생성자에 SwiftUI의 View를 파라미터로 넘겨주면 UIViewController로 사용할 수 있음
+
+예제)
+
+```swift
+// ContentView.swift
+struct ContentView: View {
+    var body: some View {
+        Text("Wayne's World!!!")
+    }
+}
+
+// AppDelegate.swift
+let window = UIWindow(windowScene: windowScene)
+let hostingController = UIHostingController(rootView: ContentView())
+window.rootViewController = hostingController
+window.makeKeyAndVisible()
+self.window = window
+```
+
+UIViewControllerRepresentable Protocol을 구현하면 UIViewController를 SwiftUI에서 
+
+사용할 수 있음
+
+```swift
+struct ViewControllerRepresentation: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> ViewController {
+        UIStoryboard(name: "Main", bundle: nil)
+      .instantiateViewController(withIdentifier: "ViewController")
+      as! ViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: ViewController, context: Context) {
+        
+    }
+}
+```
+
+위 예시와 같이 makeUIViewController:context: 함수와 updateUIViewController:_:context: 함수를 구현해주면 에러가 사라짐
+
+`makeUIViewController:context:` 함수는 UIViewController를 생성하고 초기화를 수행하는 함수이며, `updateUIViewController`함수는 ViewController의 업데이트가 필요할 때 호출됩니다. 이 위치에서 ViewController에 필요한 데이터 또는 정보를 갱신해주어야 함
+
+```swift
+var body: some View {
+    NavigationLink(destination: ViewControllerRepresentation()) {
+          Text("Move to UIViewController")
+    }
+}
+```
+
+ViewControllerRepresentation 구조체를 생성하여 위 예시와 같이 호출해주면, UIViewController를 SwiftUI에서 사용할 수 있음
+
+UIView도 UIViewRepresentable을 구현하면 SwiftUI에서 손쉽게 사용할 수 있음
+
+struct ColorUISlider: UIViewRepresentable {
+    var color: UIColor
+    @Binding var value: Double
+
+    func makeUIView(context: Context) -> UISlider {
+        let slider = UISlider(frame: .zero)
+        slider.thumbTintColor = color
+        slider.value = Float(value)
+        return slider
+    }
+
+    func updateUIView(_ uiView: UISlider, context: Context) {
+        uiView.value = Float(self.value)
+    }
+}
