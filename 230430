@@ -249,3 +249,86 @@ var optinalType2: Optinal<Int>
     - 클래스, 구조체, 열거형 타입에 메서드, 프로퍼티, 생성자를 추가적으로 정의해 사용하기 위해 사용
     - 저장 프로퍼티는 정의할 수 없고, 연산 프로퍼티만 정의할 수 있음
     - where을 사용하면 특정한 조건을 가진 타입에서만 extension 적용할 수 있음
+
+
+- Defer에 대해 설명하시오
+    - defer는 클로저에 정의된 코드가 읽어진 이후에 함수가 끝나기 전 마지막에 실행되도록
+    
+    ```swift
+    func deferTest() {
+          print(1)
+          defer {
+              print("last")
+          }
+          print(2)
+      }
+     
+      deferTest()
+      // 1
+      // 2
+      // last
+    ```
+    
+    - defer 코드가 실행되지 않으면 함수가 끝나도 클로저는 실행되지 않음
+    
+    ```swift
+    func deferTest() {
+          print(1)
+          return
+          defer {
+              print("last")
+          }
+          print(2)
+      }
+     
+      deferTest()
+      // 1
+    ```
+    
+    - 여러개의 defer가 실행되었다면 읽혀진 역순으로 실행
+        
+        ```swift
+        func deferTest() {
+              print(1)
+              defer {
+                  print("last1")
+              }
+              defer {
+                  print("last2")
+              }
+              defer {
+                  print("last3")
+              }
+              print(2)
+          }
+         
+          deferTest()
+          // 1
+          // 2
+          // last3
+          // last2
+          // last1
+        ```
+        
+    - 중첩된 defer는 바깥쪽 defer 부터 실행
+    
+    func deferTest() {
+      print(1)
+      defer {
+          print("last1")
+          defer {
+              print("last2")
+              defer {
+                  print("last3")
+              }
+          }
+      }
+      print(2)
+  }
+ 
+  deferTest()
+  // 1
+  // 2
+  // last1
+  // last2
+  // last3
