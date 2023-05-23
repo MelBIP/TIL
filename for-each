@@ -1,0 +1,61 @@
+**forEach** : 야 나는 이 Collection의 요소 갯수만큼 반복해주는 함수다?
+
+근데 **반복할 때 할 작업은 너가 클로저로 작성해서 내 파라미터**로 넘겨줘라 ㅇㅋ?
+
+Collection에 저장된 요소는 **클로저 반복 실행할 때마다** **클로저 상수**로 넘겨줄게
+
+이렇게 되는 것임!!
+
+이렇게 이론으로 보면 어려운데, 코드로 보면 쉬우니까 코드로 봅시다 :)
+
+1-1. Array
+
+```swift
+let nums: [Int] = [1, 2, 3, 4]
+ 
+nums.forEach {
+    print($0)       // 1 2 3 4
+}
+```
+
+```swift
+nums.enumerated().forEach {
+    print("(index: \($0) num: \($1))")             // (index: 0 num: 1) (index: 1 num: 2) (index: 2 num: 3) (index: 3 num: 4)
+}
+ 
+nums.indices.forEach {
+    print("(index: \($0) num: \(nums[$0]))")       // (index: 0 num: 1) (index: 1 num: 2) (index: 2 num: 3) (index: 3 num: 4)
+}
+```
+
+1-2. Dictionary
+
+```swift
+let dict: [String : String] = ["A" : "Apple", "B" : "Banana", "C" : "Cherry"]
+ 
+dict.forEach {
+    print("(\($0.key) : \($0.value))")  // (B : Banana) (C : Cherry) (A : Apple)
+}
+ 
+dict.forEach { (key, value) in
+    print("(\(key) : \(value))")        // (C : Cherry) (A : Apple) (B : Banana) 
+}
+ 
+dict.keys.forEach {
+    print($0)       // B C A
+}
+ 
+dict.values.sorted().forEach {
+    print($0)       // Apple Banana Cherry
+}
+```
+
+1-3. Set
+
+```swift
+let nums: Set<Int> = [1, 2, 3, 4]
+ 
+nums.forEach {
+    print($0)               // 2 3 1 4
+}
+```
