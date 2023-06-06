@@ -1,0 +1,23 @@
+🫶 **StackView**
+
+1. Axis가 Horizontal(가로 방향)로 설정된 StackView의 경우
+
+- 첫번째 View의 왼쪽 Edge == StackView의 왼쪽 Edge
+- 마지막 View의 오른쪽 Edge == StackVIew의 오른쪽 Edge
+
+2. Axis가 Vertical(세로 방향)로 설정된 StackView의 경우
+
+- 첫번째 View의 Top Edge == StackView의 Top Edge
+- 마지막 View의 Bottom Edge == StackView의 Bottom Edge
+
+이와 관련된 프로퍼티 : isLayoutMarginsRelativeArrangement
+
+플래그를 True로 설정할 시, StackView는 Content의 Edge 기준이 아닌 스택뷰 - 컨텐츠 사이의 Layout에 마진 값을 두어 ArrangeViews들을 배치할 수 있음
+
+let stvPractice = UIStackView()
+stvPractice.then {
+    $0.isLayoutMarginsRelativeArrangement = true
+    $0.axis = .horizontal
+    $0.layoutMargins.left = 15.0
+    $0.layoutMargins.right = 15.0
+}
