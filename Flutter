@@ -1,0 +1,17 @@
+[DartPad](https://www.notion.so/Flutter-613e100d962c4d5392052b06c13de41a?pvs=21)
+
+색상 변경 : Colors
+
+_ : private을 의미
+
+setState : 다시 그려!
+
+Icon : Icon(Icons.아이콘 이름, color: Colors.색상이름, size: 크기);  / 되게 많이 쓰는 위젯
+
+[Flutter에서 사용하는 위젯](https://api.flutter.dev/flutter/widgets/Text-class.html)
+
+Row : 세로 배치, Culmn : 가로 배치, Stack : 겹치게 배치
+
+Container : width나 height가 없는 애들을 강제로 설정해줄 때
+
+option + enter : 위젯 중첩 수정
