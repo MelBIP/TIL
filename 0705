@@ -1,0 +1,167 @@
+### 230612
+
+**TableView**
+
+1. tableView 만들기
+    
+    1-1. 
+    
+    ```swift
+    var tableView: UITableView!
+    ```
+    
+    이때 tableView는 무조건 존재할 것이기때문에 강제 옵셔널처리해주어도 괜찮
+    
+    1-2. 
+    
+    ```swift
+    var tableView : UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+            
+        return tableView
+    }()
+    ```
+    
+    UILabel이나 UIButton을 만들 때처럼 코드 작성해줘도 됨
+    
+2. tableView를 view에 넣기
+    
+    ```swift
+    override func viewDidLoad() {
+    		super.viewDidLoad()
+    
+    		self.tableView = UITableView(frame: CGRect(x: 0, y: 9, width: self.view.boudns.width, height: self.viwe.bounds.height))
+    		self.tableView.dataSource = self
+    		self.tableView.delegate = self
+    		self.view.addSubview(tableView)
+    }
+    ```
+    
+    viewDidLoad()에서 tableView를 addSubview()메서드를 사용하여 view에 추가
+    
+    - 테이블뷰의 크기와 위치를 CGRect(cgPoint + cgSize)를 사용하여 지정
+    - 테이블 뷰의 데이터와 화면변화를 viewController에서 처리할 것이기 때문에 tableView.dataSource = self(viewController), tableView.delegate = self로 지정
+    
+
+### 230613
+
+1. tableViewCell 등록하기
+    
+    ```swift
+    override func viewDidLoad() {
+    		super.viewDidLoad()
+    
+    //		self.tableView = UITableView(frame: CGRect(x: 0, y: 9, width: self.view.boudns.width, height: self.viwe.bounds.height))
+    //		self.tableView.dataSource = self
+    //		self.tableView.delegate = self
+    		self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+    //		self.view.addSubview(tableView)
+    }
+    ```
+    
+    register 메서드를 사용하여 재사용할 tableviewCell을 등록
+    
+    - 앞에는 customCell 타입을, 뒤에는 ReUseIdentifier를 작성
+        - 저는 커스텀 셀을 만들지 않고 기본 테이블뷰에서 제공하는 셀을 사용했기 때문에 위와같이 UITableViewCell.self로 작성
+    
+    그 외 다른 부분은 스토리보드로 작성할 때와 같음
+    
+    🪈 **progress View**
+    
+    ![스크린샷 2023-06-13 오후 11.17.36.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bdd709a-5d52-4a39-b05b-95e1f478f639/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-06-13_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.17.36.png)
+    
+    여기에 있는 바를 어떻게 하는 건가 비워놓고 있었는데 
+    
+    ![스크린샷 2023-06-13 오후 11.18.06.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5c8c630a-41cb-4fa3-8dbc-91ff7c86b2da/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-06-13_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.18.06.png)
+    
+    응프 시간에 쓰는 프로젝트에서는 스토리보드를 쓰느라 저 바 이름이 Progress View라는 것을 알았음
+    
+    view이기 때문에 너비, 높이 제약 설정해줄 때에는 widthAnchor, heightAnchor로 적어주기!!
+    
+    - **Anchor를 붙여주는 이유! -**
+    
+     : Auto Layout 시스템이 제약 조건을 올바르게 해석하고 적용하기 위해서
+    
+       Anchor는 제약 조건을 정의하는데 사용되는 객체로, 해댱 view의 특정 속성을 가리킴
+    
+       Anchor를 사용하는 것은 가독성과 유지 관리 측면에서도 이점을 가짐 
+    
+       Anchor를 사용하면 코드를 읽고 이해하기 쉽고, 제약 조건을 수정하거나 추가할 때에도 코드를 더 직관적 
+    
+       으로 작성할 수 있음
+    
+       따라서, Anchor를 붙여주는 것은 Auto Layout을 효과적으로 사용하기 위한 권장 사항
+    
+    **- isActive란 무엇인가 -**
+    
+     : NSLayoutConstraint의 속성으로, 해당 제약 조건이 활성화되었는지를 나타내는 Bool 값임 
+    
+       기본적으로 모든 제약 조건은 비활성화되어 있으며, 활성화하려면 isActive 속성을 true로 설정해야 함
+    
+    ### 230620
+    
+    - [x]  ProgressView 수정..
+    - [ ]  TableView 추가
+    
+    $0.progress = 20 이거랑 $0.setProgress(0.2, animated: false) 이거랑 결과는 똑같음
+    
+    0.0 ~ 1.0 사이의 값만 들어갈 수 있음
+    
+    left는 지정해줬는데 right를 지정 안 해줘서 안 떴던 것임
+    
+    ![스크린샷 2023-06-20 오후 11.10.35.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ac10724-3166-49f8-ba61-a026092367f0/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-06-20_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.10.35.png)
+    
+    📦 **TableView**
+    
+    ### 230625
+    
+    🛞 **scrollView**
+    
+    ❗️stackView를 코드로 구현할 때 주의할 점❗️
+    
+    반드시 axis를 지정해줘야 함 spacing은 없으면 0으로 딱 붙어서 나오지만 축은 꼭 정해줘야 함 axis 문장을 빼고 빌드하면 뷰가 계획대로 나오지 않음
+    
+    **스택 뷰도 leading, trailing, top, bottom 방향에 대해 스크롤 뷰의 contentLayoutGuide의 anchor에 제약**을 걸어줌 여기에 widthAnchor도 걸어줌 widthAnchor는 frameLayoutGuide의 widthAnchor와 같게 하면 됨
+    
+    fillStackView() 함수는 단순히 UIView를 동적으로 만들어 채워넣는 함수
+    
+    ### 230626
+    
+    **🪢 tableView**
+    
+    tableView에 값을 추가하려면 UITableViewDataSource 프로토콜의 메서드를 구현해야 함
+    
+    **`tableView(_:numberOfRowsInSection:)`** 메서드에서는 섹션별로 표시할 행의 개수를 반환하고, **`tableView(_:cellForRowAt:)`** 메서드에서는 각 행에 대한 셀을 구성
+    
+    아래는 예시 코드로, **`tableView(_:numberOfRowsInSection:)`**에서 3개의 행을 반환하고, **`tableView(_:cellForRowAt:)`**에서 각 행에 "Row 1", "Row 2", "Row 3"의 텍스트를 표시하는 간단한 예시
+
+class HomeViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
+    // 이전 코드 생략...
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 이전 코드 생략...
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        view.addSubview(tableView)
+    }
+    
+    // UITableViewDataSource methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the number of rows in your table view
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        // Configure the cell
+        cell.textLabel?.text = "Row \(indexPath.row + 1)"
+        
+        return cell
+    }
+}
