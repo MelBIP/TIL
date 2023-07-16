@@ -1,0 +1,31 @@
+### 230712
+
+**Lottie란?**
+
+Airbnb에서 제공하는 모바일 애니메이션 라이브러리이다.
+
+### 230713
+
+⛳️ **LaunchScreen**
+
+AppDelegate에서 화면 뜨는 시간 조절 가능
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		// Override point for customization after application launch.
+		Thread.sleep(forTimeInterval: 3) // for 3 seconds
+		return true
+}
+```
+
+Thread.sleep(forTimeInterval: 3) → 3초동안 splash가 뜸
+
+$0.clipsToBounds = true : 넘치는 영역 자르기 (이걸 해줘야 모서리가 둥글게 됨)
+
+**branch 삭제**
+
+git branch -d 브랜치명 // local에서 branch 삭제
+
+git push origin :브랜치명 // remote branch 삭제
+
+$0.lineBreakMode = .byTruncatingTail : 끝에 넘어갔을 때 …로 처리
