@@ -12,6 +12,8 @@
 		9B111B482ACB0B2B00A4B439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B111B472ACB0B2B00A4B439 /* Assets.xcassets */; };
 		9B111B4B2ACB0B2B00A4B439 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B111B4A2ACB0B2B00A4B439 /* Preview Assets.xcassets */; };
 		9B111B532ACB0BD400A4B439 /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B111B522ACB0BD400A4B439 /* AlarmView.swift */; };
+		9B111B552ACC5CBB00A4B439 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B111B542ACC5CBB00A4B439 /* StopWatchView.swift */; };
+		9B111B572ACC5D0E00A4B439 /* WorldWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B111B562ACC5D0E00A4B439 /* WorldWatchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		9B111B472ACB0B2B00A4B439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B111B4A2ACB0B2B00A4B439 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B111B522ACB0BD400A4B439 /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		9B111B542ACC5CBB00A4B439 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
+		9B111B562ACC5D0E00A4B439 /* WorldWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldWatchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			children = (
 				9B111B452ACB0B2900A4B439 /* ContentView.swift */,
 				9B111B522ACB0BD400A4B439 /* AlarmView.swift */,
+				9B111B542ACC5CBB00A4B439 /* StopWatchView.swift */,
+				9B111B562ACC5D0E00A4B439 /* WorldWatchView.swift */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -150,6 +156,8 @@
 			files = (
 				9B111B462ACB0B2900A4B439 /* ContentView.swift in Sources */,
 				9B111B442ACB0B2900A4B439 /* SwiftUI_ClockAppApp.swift in Sources */,
+				9B111B552ACC5CBB00A4B439 /* StopWatchView.swift in Sources */,
+				9B111B572ACC5D0E00A4B439 /* WorldWatchView.swift in Sources */,
 				9B111B532ACB0BD400A4B439 /* AlarmView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

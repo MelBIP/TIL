@@ -11,11 +11,23 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            World_Clock()
+                .tabItem {
+                    Image(systemName: "globe")
+                    Text("세계 시계")
+                }
+            
             Alarm()
                 .tabItem {
                     Image(systemName: "alarm.fill")
                     Text("알림")
-                }           
+                }
+            
+            StopWatch()
+                .tabItem {
+                    Image(systemName: "stopwatch.fill")
+                    Text("스톱워치")
+                }
         }
         .accentColor(Color.orange)
     }
